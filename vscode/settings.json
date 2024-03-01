@@ -1,0 +1,359 @@
+{
+  // Editor
+  "editor.stickyScroll.enabled": true,
+  "editor.lineNumbers": "relative",
+  "editor.fontWeight": "normal",
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": true,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorSurroundingLines": 5,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "editor.cursorBlinking": "expand",
+  "editor.cursorWidth": 3,
+  "editor.codeLensFontFamily": "JetBrains Mono",
+  "editor.inlayHints.fontFamily": "JetBrains Mono",
+  "editor.formatOnSave": true,
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": false,
+  "editor.wordWrap": "on",
+  "window.density.editorTabHeight": "compact",
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace",
+    "gitlens.codeLens.scopes": ["document"],
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  // Prettier
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.trailingComma": "none",
+  "prettier.bracketSameLine": false,
+  "prettier.singleAttributePerLine": true,
+  "prettier.printWidth": 80,
+  "prettier.htmlWhitespaceSensitivity": "ignore",
+  "prettier.arrowParens": "always",
+  "workbench.iconTheme": "material-icon-theme",
+  "oneDarkPro.vivid": true,
+  "git.autofetch": true,
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "terminal.integrated.fontSize": 14,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // files
+  "files.associations": {
+    "*.jsx": "javascript"
+  },
+  "files.exclude": {
+    "/**/node_modules": true,
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true
+  },
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "liveServer.settings.CustomBrowser": "chrome",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.gpuAcceleration": "off",
+  "workbench.fontAliasing": "auto",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "i18n-ally.displayLanguage": "en",
+  "terminal.integrated.env.osx": {},
+  "security.workspace.trust.untrustedFiles": "newWindow",
+  "vue.updateImportsOnFileMove.enabled": true,
+  "console-ninja.outputMode": "In View",
+  "workbench.colorTheme": "SynthWave '84",
+  "security.workspace.trust.banner": "always",
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cSpell.userWords": [
+    "attributify",
+    "daisyui",
+    "foldfix",
+    "highlightedyank",
+    "hlsearch",
+    "Iconify",
+    "Pinia",
+    "rgba",
+    "sider",
+    "sufixx",
+    "tailwindcss",
+    "unocss",
+    "unplugin",
+    "vscodevim",
+    "vueuse",
+    "whichkey"
+  ],
+  "scss.lint.unknownAtRules": "ignore",
+  "css.lint.unknownAtRules": "ignore",
+  "console-ninja.featureSet": "Community",
+  "window.zoomLevel": 1,
+  "terminal.integrated.env.windows": {},
+  "terminal.integrated.env.linux": {},
+  "vscode_custom_css.imports": [
+    "file:///Users/spongebob/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.1/dist/updateHandler.js"
+  ],
+  // Vim config
+  "vim.leader": "<space>",
+  "vim.useCtrlKeys": true,
+  "vim.sneak": true,
+  "vim.foldfix": true,
+  "vim.hlsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "rgba(214,0,255)",
+  "vim.highlightedyank.textColor": "white",
+  "vim.handleKeys": {
+    "<C-d>": true,
+    "<C-s>": false,
+    "<C-z>": false,
+    "<C-x": false
+  },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // 删除替换不复制
+    {
+      "before": ["d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["D"],
+      "after": ["\"", "_", "D"]
+    },
+    {
+      "before": ["c"],
+      "after": ["\"", "_", "c"]
+    },
+    {
+      "before": ["C"],
+      "after": ["\"", "_", "C"]
+    },
+    // end删除替换不复制
+    {
+      "before": ["."],
+      "commands": ["editor.action.duplicateSelection"]
+    },
+    {
+      "before": ["\\", "r"],
+      "commands": ["editor.action.formatDocument"],
+      "when": "textInputFocus && !editorReadonly"
+    },
+    {
+      "before": ["g", "b"],
+      "commands": ["workbench.action.navigateBack"]
+    },
+    {
+      "before": ["g", "f"],
+      "commands": ["workbench.action.navigateForwardInEditLocations"]
+    },
+    {
+      "before": ["<leader>", "s", "u"],
+      "commands": ["editor.action.revealDefinition"]
+    },
+    {
+      "before": ["<leader>", "s", "h"],
+      "commands": ["editor.action.showHover"]
+    },
+    {
+      "before": ["<leader>", "r", "e"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["x"],
+      "commands": ["deleteRight"],
+      "when": "textInputFocus"
+    },
+    {
+      "before": ["leader", "i"],
+      "commands": ["extension.toggleBool"]
+    },
+    {
+      "before": ["leader", "w"],
+      "commands": [":w!"]
+    },
+    {
+      "before": ["leader", "q"],
+      "commands": [":q!"]
+    },
+    {
+      "before": ["leader", "x"],
+      "commands": [":x!"]
+    },
+    {
+      "before": ["U"],
+      "commands": ["redo"]
+    },
+    {
+      "before": ["u"],
+      "commands": ["undo"]
+    },
+    {
+      "before": ["<c-a>"],
+      "after": ["g", "g", "V", "G"]
+    },
+    {
+      "before": ["<leader>", "n", "e"],
+      "commands": ["editor.action.marker.next"]
+    },
+    {
+      "before": ["<leader>", "p", "e"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    {
+      "before": ["leader", "a"],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["L"],
+      "after": ["$"]
+    },
+    {
+      "before": ["H"],
+      "after": ["^"]
+    },
+    {
+      "before": ["leader", "z", "s"],
+      "commands": ["editor.fold"]
+    },
+    {
+      "before": ["leader", "z", "o"],
+      "commands": ["editor.unfoldAll"]
+    },
+    // Navigation
+    {
+      "before": ["leader", "l"],
+      "after": ["g", "t"]
+    },
+    {
+      "before": ["leader", "h"],
+      "after": ["g", "T"]
+    },
+    {
+      "before": ["leader", "e"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["leader", "e"],
+      "commands": ["workbench.files.action.focusFilesExplorer"],
+      "when": "editorTextFocus"
+    },
+    {
+      "before": ["v", "s"],
+      "commands": ["workbench.action.splitEditorToRightGroup"],
+      "when": "editorTextFocus && !textInputFocus"
+    },
+    {
+      "before": ["b", "s"],
+      "commands": ["workbench.action.splitEditorDown"],
+      "when": "editorTextFocus && !textInputFocus"
+    },
+    {
+      "before": ["<leader>", "n", "s"],
+      "commands": ["workbench.action.focusNextGroup"],
+      "when": "editorTextFocus && !textInputFocus"
+    },
+    {
+      "before": ["<leader>", "p", "s"],
+      "commands": ["workbench.action.focusPreviousGroup"],
+      "when": "editorTextFocus && !textInputFocus"
+    },
+    {
+      "before": ["leader", "r"],
+      "commands": ["editor.action.startFindReplaceAction"]
+    },
+    {
+      "before": ["<c-l>"],
+      "commands": ["editor.action.addSelectionToNextFindMatch"],
+      "when": "editorFocus"
+    }
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // 删除替换不复制
+    {
+      "before": ["d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["D"],
+      "after": ["\"", "_", "D"]
+    },
+    {
+      "before": ["c"],
+      "after": ["\"", "_", "c"]
+    },
+    {
+      "before": ["C"],
+      "after": ["\"", "_", "C"]
+    },
+    {
+      "before": ["c", "c"],
+      "after": ["\"", "_", "c", "c"]
+    },
+    // end删除替换不复制
+    {
+      "before": ["H"],
+      "after": ["^"]
+    },
+    {
+      "before": ["L"],
+      "after": ["$"]
+    },
+    {
+      "before": ["x"],
+      "commands": ["deleteRight"],
+      "when": "textInputFocus"
+    },
+    {
+      "before": ["leader", "e"],
+      "commands": ["workbench.files.action.focusFilesExplorer"],
+      "when": "editorTextFocus"
+    },
+    {
+      "before": ["leader", "w"],
+      "commands": ["editor.emmet.action.wrapWithAbbreviation"]
+    },
+    {
+      "before": ["<c-l>"],
+      "commands": ["editor.action.addSelectionToNextFindMatch"],
+      "when": "editorFocus"
+    },
+    // Which keys
+    {
+      "before": ["<space>"],
+      "commands": ["whichkey.show"]
+    }
+  ],
+  // To improve performance
+  "extensions.experimental.affinity": {
+    "vscodevim": 1
+  },
+  "editor.multiCursorModifier": "ctrlCmd"
+}

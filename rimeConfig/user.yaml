@@ -1,0 +1,10 @@
+var:
+  last_build_time: 1709362662
+  option:
+    ascii_punct: true
+    traditionalization: false
+  previously_selected_schema: rime_ice
+  schema_access_time:
+    double_pinyin_abc: 1709305166
+    rime_ice: 1709361846
+    t9: 1709361802

@@ -24,6 +24,8 @@
   "editor.linkedEditing": true,
   "editor.minimap.enabled": false,
   "editor.wordWrap": "on",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
   "eslint.enable": true,
   "window.density.editorTabHeight": "compact",
   "[json]": {
@@ -34,17 +36,59 @@
     "gitlens.codeLens.scopes": ["document"],
     "editor.defaultFormatter": "vscode.json-language-features"
   },
+  // ui
+  "window.commandCenter": false,
+  "editor.scrollbar.vertical": "auto",
+  "editor.scrollbar.horizontal": "auto",
+  "window.titleBarStyle": "custom",
+
+  // APC
+  "apc.activityBar": {
+    "position": "bottom",
+    "hideSettings": true,
+    "size": 28
+  },
+  "apc.electron": {
+    "titleBarStyle": "hiddenInset",
+    "trafficLightPosition": {
+      "x": 12,
+      "y": 10
+    }
+  },
+  "apc.font.family": "Jetbrains Mono",
+  "apc.monospace.font.family": "Jetbrains Mono",
+  "apc.statusBar": {
+    "position": "editor-bottom",
+    "height": 28,
+    "fontSize": 12
+  },
+  // Custom css
+  "apc.stylesheet": {
+    ".sidebar > .composite": "height: 12px !important",
+    ".title-label": "display: none !important",
+    ".title-actions": "display: none !important",
+    ".tabs-and-actions-container > .editor-actions": "display: none !important",
+    ".titlebar-center": "display: none !important",
+    ".inline-tabs-placeholder": "display: none !important"
+  },
+
+  // Misc
+  "workbench.startupEditor": "none",
+  "explorer.compactFolders": false,
+  "editor.tabSize": 2,
+  "breadcrumbs.filePath": "off",
+
   // Prettier
   "prettier.semi": false,
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true,
-  "prettier.trailingComma": "none",
+  "prettier.trailingComma": "all",
   "prettier.bracketSameLine": false,
   "prettier.singleAttributePerLine": true,
   "prettier.printWidth": 80,
   "prettier.htmlWhitespaceSensitivity": "ignore",
   "prettier.arrowParens": "always",
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.iconTheme": "Monokai Pro Icons",
   "oneDarkPro.vivid": true,
   "git.autofetch": true,
   "terminal.external.osxExec": "iTerm.app",
@@ -60,14 +104,28 @@
   "files.associations": {
     "*.jsx": "javascript"
   },
+  // toggle files
   "files.exclude": {
-    "/**/node_modules": true,
+    "**/node_modules": true,
     "**/.git": true,
     "**/.svn": true,
     "**/.hg": true,
     "**/CVS": true,
     "**/.DS_Store": true,
-    "**/Thumbs.db": true
+    "**/Thumbs.db": true,
+    "**/.vscode": true,
+    "**/build": true,
+    "**/public": true,
+    "**/types": true,
+    "**/.eslintrc-auto-import.json": true,
+    "**/README.md": true,
+    "**/*-lock.yaml": true,
+    "**/*.config.js": true,
+    "**/*.config.ts": true,
+    "**/*config.json": true,
+    "**/.prettier*": true,
+    "**/.eslint*": true,
+    "**/*env.*": true
   },
   "explorer.confirmDelete": true,
   "explorer.confirmDragAndDrop": true,
@@ -86,29 +144,10 @@
   "security.workspace.trust.untrustedFiles": "newWindow",
   "vue.updateImportsOnFileMove.enabled": true,
   "console-ninja.outputMode": "In View",
-  "workbench.colorTheme": "SynthWave '84",
   "security.workspace.trust.banner": "always",
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "cSpell.userWords": [
-    "attributify",
-    "daisyui",
-    "foldfix",
-    "highlightedyank",
-    "hlsearch",
-    "Iconify",
-    "Pinia",
-    "rgba",
-    "sider",
-    "sufixx",
-    "tailwindcss",
-    "unocss",
-    "unplugin",
-    "vscodevim",
-    "vueuse",
-    "whichkey"
-  ],
   "scss.lint.unknownAtRules": "ignore",
   "css.lint.unknownAtRules": "ignore",
   "console-ninja.featureSet": "Community",
@@ -135,7 +174,7 @@
     "<C-x": false
   },
   "vim.normalModeKeyBindingsNonRecursive": [
-    // 删除替换不复制
+    // Deleting & cutting don't copy
     {
       "before": ["d"],
       "after": ["\"", "_", "d"]
@@ -152,7 +191,7 @@
       "before": ["C"],
       "after": ["\"", "_", "C"]
     },
-    // end删除替换不复制
+    //End Deleting & cutting don't copy
     {
       "before": ["."],
       "commands": ["editor.action.duplicateSelection"]
@@ -236,6 +275,10 @@
       "after": ["^"]
     },
     {
+      "before": ["N"],
+      "after": ["%"]
+    },
+    {
       "before": ["<leader>", "z", "s"],
       "commands": ["editor.fold"]
     },
@@ -289,7 +332,7 @@
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
-    // 删除替换不复制
+    //  Deleting & cutting don't copy
     {
       "before": ["d"],
       "after": ["\"", "_", "d"]
@@ -310,7 +353,7 @@
       "before": ["c", "c"],
       "after": ["\"", "_", "c", "c"]
     },
-    // end删除替换不复制
+    // End Deleting & cutting don't copy
     {
       "before": ["H"],
       "after": ["^"]
@@ -318,6 +361,10 @@
     {
       "before": ["L"],
       "after": ["$"]
+    },
+    {
+      "before": ["N"],
+      "after": ["%"]
     },
     {
       "before": ["x"],
@@ -343,5 +390,7 @@
   "extensions.experimental.affinity": {
     "vscodevim": 1
   },
-  "editor.multiCursorModifier": "ctrlCmd"
+  "editor.multiCursorModifier": "ctrlCmd",
+  "workbench.colorTheme": "Monokai Pro",
+  "workbench.layoutControl.enabled": false
 }

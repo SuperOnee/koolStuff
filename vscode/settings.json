@@ -275,7 +275,7 @@
       "after": ["^"]
     },
     {
-      "before": ["N"],
+      "before": ["M"],
       "after": ["%"]
     },
     {
@@ -363,7 +363,7 @@
       "after": ["$"]
     },
     {
-      "before": ["N"],
+      "before": ["M"],
       "after": ["%"]
     },
     {
@@ -388,7 +388,7 @@
   ],
   // To improve performance
   "extensions.experimental.affinity": {
-    "vscodevim": 1
+    "vscodevim.vim": 1
   },
   "editor.multiCursorModifier": "ctrlCmd",
   "workbench.colorTheme": "Monokai Pro",

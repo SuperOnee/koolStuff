@@ -38,15 +38,15 @@ set clipboard+=unnamed
 nnoremap x "_x
 nnoremap X "_X
 nnoremap d "_d
-nnoremap D "_D
+"nnoremap D "_D
 nnoremap c "_c
-nnoremap C "_C
+nnoremap c "_c
 
 " Virtual
 vnoremap x "_x
 vnoremap X "_X
 vnoremap d "_d
-vnoremap D "_D
+"vnoremap D "_D
 vnoremap c "_c
 vnoremap C "_C
 
@@ -66,7 +66,6 @@ map <leader>tz <action>(ToggleZenMode)
 " = No Leader Keymaps =====================================
 " ================================================================================================
 nmap \r <Action>(ReformatCode)
-nmap \b <Action>(ToggleLineBreakpoint)
 nmap vs <Action>(SplitVertically)
 nmap bs <Action>(SplitHorizontally)
 nmap gd <Action>(GotoDeclaration)
@@ -79,8 +78,11 @@ nmap [[ <Action>(MethodUp)
 nmap ]] <Action>(MethodDown)
 nmap U <Action>($Redo)
 nmap u <Action>($Undo)
+map K :nohls<CR>
 " Multiple cursors operations
+" Select next Occurrence
 map <C-l> <A-n>
+" Skip next Occurrence
 map <C-x> <A-x>
 map <C-p> <A-p>
 map <C-h> <Action>(HideActiveWindow)
@@ -101,12 +103,21 @@ nmap 'a 'A
 " ================================================================================================
 " = Leader Keymaps =====================================
 " ================================================================================================
+let g:WhichKeyDesc_Next = "<leader>n Next"
+let g:WhichKeyDesc_NextError = "<leader>ne NextError"
 nmap <leader>ne <Action>(GotoNextError)
-nmap <leader>pe <Action>(GotoPreviousError)
-nmap <leader>a <Action>(ShowIntentionActions)
+let g:WhichKeyDesc_NextSplitter = "<leader>ns NextSplitter"
 nmap <leader>ns <Action>(NextSplitter)
+
+let g:WhichKeyDesc_Previous = "<leader>p Previous"
+let g:WhichKeyDesc_PreviousError = "<leader> PreviousError"
+nmap <leader>pe <Action>(GotoPreviousError)
+let g:WhichKeyDesc_PreviousSplitter = "<leader> PreviousSplitter"
 nmap <leader>ps <Action>(PrevSplitter)
+
 map <leader><leader> <Action>(RecentFiles)
+
+map <leader>/ <Action>(FindInPath)
 
 " Toggle ⭐
 let g:WhichKeyDesc_Toggle = "<leader>t Toggle"
@@ -136,7 +147,7 @@ nmap <leader>h <Action>(PreviousTab)
 let g:WhichKeyDesc_NextTab = "<leader>l NextTab"
 nmap <leader>l <Action>(NextTab)
 
-" Show ⭐️
+" Show & Search ⭐️
 let g:WhichKeyDesc_Show = "<leader>s Show"
 let g:WhichKeyDesc_ShowFileStructure = "<leader>ss ShowFileStructure"
 nmap <leader>ss <Action>(FileStructurePopup)
@@ -146,6 +157,8 @@ let g:WhichKeyDesc_ShowParameterInfo = "<leader>sp ShowParameterInfo"
 nmap <leader>sp <Action>(ParameterInfo)
 let g:WhichKeyDesc_ShowUsages = "<leader>su ShowUsages"
 nmap <leader>su <Action>(ShowUsages)
+let g:WhichKeyDesc_ShowContextAction = "<leader>sh ShowContextAction"
+nmap <leader>sh <Action>(ShowIntentionActions)
 
 " CloseOrCreate ⭐️
 let g:WhichKeyDesc_CloseOrCreate = "<leader>c CloseOrCreate"
@@ -156,12 +169,10 @@ map <leader>co <Action>(CloseAllEditorsButActive)
 let g:WhichKeyDesc_NewElementSamePlace = "<leader>cf NewElementSamePlace"
 map <leader>cf <Action>(NewElementSamePlace)
 
-" Run/Re ⭐️
-let g:WhichKeyDesc_RunOrRe = "<leader>r RunOrRe"
+" Run ⭐️
+let g:WhichKeyDesc_RunOrRe = "<leader>r Run"
 let g:WhichKeyDesc_ReRun = "<leader>rr ReRun"
 nmap <leader>rr <Action>(Rerun)
-let g:WhichKeyDesc_Rename = "<leader>re Rename"
-map <leader>re <Action>(RenameElement)
 let g:WhichKeyDesc_Run = "<leader>ru Run"
 map <leader>ru <Action>(Run)
 let g:WhichKeyDesc_RunClass = "<leader>rc RunClass"
@@ -175,12 +186,32 @@ map <leader>rd <Action>(Debug)
 
 " Zip ⭐️
 let g:WhichKeyDesc_Zip = "<leader>z Zip"
-let g:WhichKeyDesc_Zip_unZipAll = "<leader>zo unZipAll"
-nmap <leader>zo <Action>(ExpandAllRegions)
-let g:WhichKeyDescZipZipAll = "<leader>zc ZipAll"
-nmap <leader>zc <Action>(CollapseAllRegions)
-let g:WhichKeyDesc_ZipSelection = "<leader> ss ZipSelection"
-nmap <leader>zs <Action>(CollapseRegion)
+let g:WhichKeyDesc_UnzipSelection = "<leader>zo UnzipSelection"
+nmap <leader>zo <Action>(ExpandRegion)
+let g:WhichKeyDesc_ZipSelection = "<leader>zc ZipSelection"
+nmap <leader>zc <Action>(CollapseRegion)
+let g:WhichKeyDesc_ZipAll = "<leader>zg ZipAll"
+nmap <leader>zg <Action>(CollapseAllRegions)
+let g:WhichKeyDesc_UnzipAll = "<leader>zG UnzipAll"
+nmap <leader>zG <Action>(ExpandAllRegions)
+
+" Insert ⭐
+let g:WhichKeyDesc_Insert = "<leader>i Insert"
+let g:WhichKeyDesc_InsertBefore = "<leader>ik InsertBefore"
+nmap <leader>ik <Action>(EditorStartNewLineBefore)
+let g:WhichKeyDesc_InsertAfter = "<leader>ij InsertAfter"
+nmap <leader>ij <Action>(EditorStartNewLine)
+
+" Util ⭐
+let g:WhichKeyDesc_CodeActions = "<leader>x CodeActions"
+let g:WhichKeyDesc_OrganizeImports = "<leader>xi OrganizeImports"
+nmap <leader>xi <Action>(OptimizeImports)
+let g:WhichKeyDesc_RenameElement = "<leader>xr RenameElement"
+nmap <leader>xr <Action>(RenameElement)
+let g:WhichKeyDesc_ReplaceInFile = "<leader>xf ReplaceInFile"
+nmap <leader>xf <Action>(Replace)
+let g:WhichKeyDesc_Refactor = "<leader>xR Refactor"
+nmap <leader>xR <Action>(RefactoringMenu)
 
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins " Highlight copied text
 Plug 'machakann/vim-highlightedyank'

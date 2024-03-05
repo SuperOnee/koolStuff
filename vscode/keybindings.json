@@ -17,6 +17,11 @@
     "when": "editorTextFocus"
   },
   {
+    "key": "ctrl+l",
+    "command": "editor.action.addSelectionToNextFindMatch",
+    "when": "editorTextFocus"
+  },
+  {
     "command": "turboConsoleLog.displayLogMessage",
     "key": "cmd+i"
   },
@@ -80,10 +85,15 @@
   {
     "key": "ctrl+e",
     "command": "workbench.files.action.focusFilesExplorer",
-    "when": "editorTextFocus"
+    "when": "inputFocus"
   },
   {
-    "key": "n",
+    "key": "t",
+    "command": "toggleexcludedfiles.toggle",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "a",
     "command": "explorer.newFile",
     "when": "filesExplorerFocus && !inputFocus"
   },
@@ -105,6 +115,11 @@
   {
     "key": "d",
     "command": "deleteFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "f",
+    "command": "revealFileInOS",
     "when": "filesExplorerFocus && !inputFocus"
   },
   {

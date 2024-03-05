@@ -25,7 +25,7 @@
   "editor.minimap.enabled": false,
   "editor.wordWrap": "on",
   "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": true,
+  "editor.suggest.showTypeParameters": true,
   "eslint.enable": true,
   "window.density.editorTabHeight": "compact",
   "[json]": {
@@ -117,6 +117,7 @@
     "**/types": true,
     "**/README.md": true,
     "**/*-lock.yaml": true,
+    "**/bun.lockb": true,
     "**/*.config.js": true,
     "**/*config.*": true,
     "**/.prettier*": true,
@@ -240,6 +241,11 @@
       "after": ["%"]
     },
     {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"],
+      "when": "textInputFocus"
+    },
+    {
       "before": ["v", "s"],
       "commands": ["workbench.action.splitEditorToRightGroup"],
       "when": "editorTextFocus && !textInputFocus"
@@ -266,6 +272,11 @@
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"],
+      "when": "textInputFocus"
+    },
     //  Deleting & cutting don't copy
     {
       "before": ["d"],
@@ -614,6 +625,12 @@
       "name": "+Text",
       "type": "bindings",
       "bindings": [
+        {
+          "key": "d",
+          "name": "Peek Definition",
+          "type": "command",
+          "command": "editor.action.peekDefinition"
+        },
         {
           "key": "w",
           "name": "Wrap with abbreviation",

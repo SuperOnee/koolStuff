@@ -58,10 +58,6 @@ map L $
 map H ^
 map . <Action>(EditorDuplicate)
 
-" Display options
-map <leader>td <action>(ToggleDistractionFreeMode)
-map <leader>tz <action>(ToggleZenMode)
-
 " ================================================================================================
 " = No Leader Keymaps =====================================
 " ================================================================================================
@@ -78,16 +74,22 @@ nmap [[ <Action>(MethodUp)
 nmap ]] <Action>(MethodDown)
 nmap U <Action>($Redo)
 nmap u <Action>($Undo)
-map K :nohls<CR>
+map X :nohls<CR>
+map K <Action>(ParameterInfo)
+map M %
 " Multiple cursors operations
 " Select next Occurrence
-map <C-l> <A-n>
+map <C-p> <A-n>
 " Skip next Occurrence
 map <C-x> <A-x>
-map <C-p> <A-p>
+map <C-,> <A-p>
 map <C-h> <Action>(HideActiveWindow)
 map <C-i> <Action>(EditorSelectWord)
 map <C-o> <Action>(EditorUnSelectWord)
+
+" window move
+nnoremap <C-h> <c-w>h
+nnoremap <C-l> <c-w>l
 
 " Scrolling
 nmap <C-j> <C-d>
@@ -138,6 +140,8 @@ let g:WhichKeyDesc_FindRecentLocations = "<leader>fl RecentLocations"
 map <leader>fl <Action>(RecentLocations)
 let g:WhichKeyDesc_GotoAction = "<leader>fa GotoAction"
 map <leader>fa <Action>(GotoAction)
+let g:WhichKeyDesc_FindUsages = "<leader>fu FindUsages"
+map <leader>fu <Action>(FindUsages)
 
 " Close ⭐️
 let g:WhichKeyDesc_CloseContent = "<leader>q CloseContent"
@@ -175,12 +179,12 @@ let g:WhichKeyDesc_ReRun = "<leader>rr ReRun"
 nmap <leader>rr <Action>(Rerun)
 let g:WhichKeyDesc_Run = "<leader>ru Run"
 map <leader>ru <Action>(Run)
-let g:WhichKeyDesc_RunClass = "<leader>rc RunClass"
-map <leader>rc <Action>(RunClass)
+let g:WhichKeyDesc_RunCurrentFile = "<leader>rc RunCurrentFile"
+map <leader>rf <Action>(RunClass)
 let g:WhichKeyDesc_RunStop = "<leader>rs RunStop"
 map <leader>rs <Action>(Stop)
-let g:WhichKeyDesc_EditRunConfigurations = "<leader>rg EditRunConfigurations"
-map <leader>rg <Action>(editRunConfigurations)
+let g:WhichKeyDesc_EditRunConfigurations = "<leader>rc EditRunConfigurations"
+map <leader>rc <Action>(editRunConfigurations)
 let g:WhichKeyDesc_RunDebug = "<leader>rd RunDebug"
 map <leader>rd <Action>(Debug)
 
@@ -218,6 +222,7 @@ Plug 'machakann/vim-highlightedyank'
 " Commentary plugin
 Plug 'tpope/vim-commentary'
 
+map <C-n> :NERDTree<CR>
 let g:NERDTreeMapActivateNode='l'
 let g:NERDTreeMapJumpParent='h'
 

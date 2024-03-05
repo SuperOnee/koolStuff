@@ -17,7 +17,7 @@
     "when": "editorTextFocus"
   },
   {
-    "key": "ctrl+l",
+    "key": "ctrl+p",
     "command": "editor.action.addSelectionToNextFindMatch",
     "when": "editorTextFocus"
   },
@@ -79,13 +79,25 @@
     "when": "codeActionMenuVisible"
   },
   {
-    "key": "ctrl+e",
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight"
+  },
+  {
+    "key": "ctrl+u",
     "command": "workbench.action.toggleSidebarVisibility"
   },
   {
-    "key": "ctrl+e",
-    "command": "workbench.files.action.focusFilesExplorer",
-    "when": "inputFocus"
+    "key": "ctrl+n",
+    "command": "workbench.files.action.focusFilesExplorer"
+  },
+  {
+    "key": "tab",
+    "command": "togglePeekWidgetFocus",
+    "when": "inReferenceSearchEditor && vim.active && vim.mode != 'Insert' || referenceSearchVisible"
   },
   {
     "key": "t",

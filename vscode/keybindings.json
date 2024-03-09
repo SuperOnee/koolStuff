@@ -87,10 +87,6 @@
     "command": "workbench.action.navigateRight"
   },
   {
-    "key": "ctrl+u",
-    "command": "workbench.action.toggleSidebarVisibility"
-  },
-  {
     "key": "ctrl+n",
     "command": "workbench.files.action.focusFilesExplorer"
   },
@@ -102,6 +98,11 @@
   {
     "key": "t",
     "command": "toggleexcludedfiles.toggle",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "q",
+    "command": "workbench.action.toggleSidebarVisibility",
     "when": "filesExplorerFocus && !inputFocus"
   },
   {

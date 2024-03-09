@@ -72,6 +72,7 @@
 
   // Misc
   "workbench.startupEditor": "none",
+  "workbench.iconTheme": "material-icon-theme",
   "explorer.compactFolders": false,
   "editor.tabSize": 2,
   "breadcrumbs.filePath": "off",
@@ -86,7 +87,6 @@
   "prettier.printWidth": 80,
   "prettier.htmlWhitespaceSensitivity": "ignore",
   "prettier.arrowParens": "always",
-  "workbench.iconTheme": "Monokai Pro Icons",
   "oneDarkPro.vivid": true,
   "git.autofetch": true,
   "terminal.external.osxExec": "iTerm.app",
@@ -104,26 +104,25 @@
   },
   // toggle files
   "files.exclude": {
-    "**/node_modules": true,
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/CVS": true,
-    "**/.DS_Store": true,
-    "**/Thumbs.db": true,
-    "**/.vscode": true,
-    "**/build": true,
-    "**/public": true,
-    "**/types": true,
-    "**/README.md": true,
-    "**/*-lock.yaml": true,
-    "**/bun.lockb": true,
-    "**/*.config.js": true,
-    "**/*config.*": true,
-    "**/.prettier*": true,
-    "**/.eslint*": true,
-    "**/*env.*": true,
-    "**/.*": true
+    "**/node_modules": false,
+    "**/.git": false,
+    "**/.svn": false,
+    "**/.hg": false,
+    "**/CVS": false,
+    "**/.DS_Store": false,
+    "**/Thumbs.db": false,
+    "**/.vscode": false,
+    "**/build": false,
+    "**/public": false,
+    "**/types": false,
+    "**/README.md": false,
+    "**/*-lock.yaml": false,
+    "**/bun.lockb": false,
+    "**/.prettier*": false,
+    "**/.eslint*": false,
+    "**/*env.*": false,
+    "**/.*": false,
+    "**/Docker*": false
   },
   "explorer.confirmDelete": true,
   "explorer.confirmDragAndDrop": true,
@@ -137,7 +136,7 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "i18n-ally.displayLanguage": "en",
+  "i18n-ally.displayLanguage": "cn",
   "terminal.integrated.env.osx": {},
   "security.workspace.trust.untrustedFiles": "newWindow",
   "vue.updateImportsOnFileMove.enabled": true,
@@ -190,6 +189,14 @@
       "after": ["\"", "_", "C"]
     },
     //End Deleting & cutting don't copy
+    {
+      "before": ["j"],
+      "after": ["g", "j"]
+    },
+    {
+      "before": ["k"],
+      "after": ["g", "k"]
+    },
     {
       "before": ["X"],
       "commands": [":nohls"]
@@ -293,10 +300,6 @@
     {
       "before": ["C"],
       "after": ["\"", "_", "C"]
-    },
-    {
-      "before": ["c", "c"],
-      "after": ["\"", "_", "c", "c"]
     },
     // End Deleting & cutting don't copy
     {
@@ -787,10 +790,7 @@
       "key": "w",
       "name": "Save file",
       "type": "command",
-      "command": "vim.remap",
-      "args": {
-        "commands": [{ "command": ":w!" }]
-      }
+      "commands": ["workbench.action.files.save"]
     },
     {
       "key": "q",
@@ -899,7 +899,8 @@
     "vscodevim.vim": 1
   },
   "editor.multiCursorModifier": "ctrlCmd",
-  "workbench.colorTheme": "Monokai Pro",
+  "workbench.colorTheme": "One Dark Pro",
   "window.commandCenter": false,
-  "workbench.layoutControl.enabled": false
+  "workbench.layoutControl.enabled": false,
+  "editor.accessibilitySupport": "off"
 }

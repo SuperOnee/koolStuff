@@ -72,8 +72,8 @@ nmap gh <Action>(ParameterInfo)
 nmap gt <Action>(GotoTest)
 nmap [[ <Action>(MethodUp)
 nmap ]] <Action>(MethodDown)
-nmap U <Action>($Redo)
-nmap u <Action>($Undo)
+map U <Action>($Redo)
+map u <Action>($Undo)
 map X :nohls<CR>
 map K <Action>(ParameterInfo)
 map M %

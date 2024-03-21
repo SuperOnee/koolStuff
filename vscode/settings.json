@@ -67,10 +67,34 @@
     ".title-actions": "display: none !important",
     ".tabs-and-actions-container > .editor-actions": "display: none !important",
     ".titlebar-center": "display: none !important",
-    ".inline-tabs-placeholder": "display: none !important"
+    ".inline-tabs-placeholder": "display: none !important",
+    "div.tab[aria-selected='true'] > .tab-border-top-container": "display: block !important; height: 2.5px; width: 100%; position: absolute; left: 0; background: linear-gradient(to right, #06f, #0af); box-shadow: 0 2px 10px #08f; z-index: 10",
+    // moonlight theme text glow, uncomment to add shadow on more tokens text.
+    ".mtk1": "color: #F9B4F6 !important; text-shadow: 0 0 8px #F9B4F6, 0 0 2px black;",
+    ".mtk3": "text-shadow: 0 0 8px #555, 0 0 3px black;",
+    ".mtk4": "text-shadow: 0 0 8px #df0c, 0 0 3px black;",
+    // ".mtk6": "color: #F9B4F6 !important; font-weight: bolder;",
+    ".mtk6": "color: #F9B4F6 !important; text-shadow: 0 0 8px #F9B4F6, 0 0 3px black; font-weight: bolder;",
+    ".mtk7": "text-shadow: 0 0 20px #78dbff, 0 0 3px black; font-weight: bolder;",
+    ".mtk8": "text-shadow: 0 0 8px #ff757f, 0 0 3px black; font-weight: bolder;",
+    ".mtk9": "text-shadow: 0 0 8px #6cf, 0 0 3px black; font-weight: bolder;",
+    ".mtk10": "text-shadow: 0 0 8px #f66, 0 0 3px black;",
+    ".mtk11": "text-shadow: 0 0 8px #2f36ff, 0 0 5px #9d91ff80, 0 0 3px black;",
+    ".mtk12": "text-shadow: 0 0 8px #12baff, 0 0 3px black;",
+    ".mtk13": "text-shadow: 0 0 8px #ff6080, 0 0 3px black;",
+    ".mtk14": "text-shadow: 0 0 8px #f85, 0 0 3px black;",
+    ".mtk16": "text-shadow: 0 0 8px #6f0, 0 0 3px black;",
+    ".mtk18": "text-shadow: 0 0 8px #879, 0 0 2px black;",
+    ".mtk22": "text-shadow: 0 0 8px #fff, 0 0 2px black;",
+    ".tab.active": "--tab-border-bottom-color: transparent !important;"
   },
 
   // Misc
+  "workbench.colorCustomizations": {
+    "editor.selectionBackground": "#eeb0cc8c",
+    "editorCursor.background": "#f7ee88",
+    "editorCursor.foreground": "#fc6519"
+  },
   "workbench.startupEditor": "none",
   "workbench.iconTheme": "material-icon-theme",
   "explorer.compactFolders": false,
@@ -104,25 +128,25 @@
   },
   // toggle files
   "files.exclude": {
-    "**/node_modules": false,
-    "**/.git": false,
-    "**/.svn": false,
-    "**/.hg": false,
-    "**/CVS": false,
-    "**/.DS_Store": false,
-    "**/Thumbs.db": false,
-    "**/.vscode": false,
-    "**/build": false,
-    "**/public": false,
-    "**/types": false,
-    "**/README.md": false,
-    "**/*-lock.yaml": false,
-    "**/bun.lockb": false,
-    "**/.prettier*": false,
-    "**/.eslint*": false,
-    "**/*env.*": false,
-    "**/.*": false,
-    "**/Docker*": false
+    "**/node_modules": true,
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/.vscode": true,
+    "**/build": true,
+    "**/public": true,
+    "**/types": true,
+    "**/README.md": true,
+    "**/*-lock.yaml": true,
+    "**/bun.lockb": true,
+    "**/.prettier*": true,
+    "**/.eslint*": true,
+    "**/*env.*": true,
+    "**/.*": true,
+    "**/Docker*": true
   },
   "explorer.confirmDelete": true,
   "explorer.confirmDragAndDrop": true,
@@ -322,6 +346,14 @@
       "before": ["x"],
       "commands": ["deleteRight"],
       "when": "textInputFocus"
+    },
+    {
+      "before": ["U"],
+      "commands": ["redo"]
+    },
+    {
+      "before": ["u"],
+      "commands": ["undo"]
     },
     // Which keys
     {
@@ -899,7 +931,7 @@
     "vscodevim.vim": 1
   },
   "editor.multiCursorModifier": "ctrlCmd",
-  "workbench.colorTheme": "One Dark Pro",
+  "workbench.colorTheme": "Moonlight",
   "window.commandCenter": false,
   "workbench.layoutControl.enabled": false,
   "editor.accessibilitySupport": "off"

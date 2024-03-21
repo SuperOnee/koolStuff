@@ -48,6 +48,9 @@
   },
   "apc.electron": {
     "titleBarStyle": "hiddenInset",
+    "transparent": true,
+    "opacity": 0.9,
+    "visualEffectState": "active",
     "trafficLightPosition": {
       "x": 12,
       "y": 10
@@ -93,7 +96,8 @@
   "workbench.colorCustomizations": {
     "editor.selectionBackground": "#eeb0cc8c",
     "editorCursor.background": "#f7ee88",
-    "editorCursor.foreground": "#fc6519"
+    "editorCursor.foreground": "#fc6519",
+    "sideBar.background": "#00000000"
   },
   "workbench.startupEditor": "none",
   "workbench.iconTheme": "material-icon-theme",
@@ -186,7 +190,7 @@
   "vim.hlsearch": true,
   "vim.useSystemClipboard": true,
   "vim.highlightedyank.enable": true,
-  "vim.highlightedyank.color": "rgba(214,0,255)",
+  "vim.highlightedyank.color": "#F9B4F6",
   "vim.highlightedyank.textColor": "white",
   "vim.handleKeys": {
     "<C-d>": true,

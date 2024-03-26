@@ -3,7 +3,6 @@
 " You can find a list of commands here: https://jb.gg/h38q75
 " Find more examples here: https://jb.gg/share-ideavimrc
 
-
 "" -- Suggested options --
 " Show a few lines of context around the cursor. Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
@@ -34,13 +33,13 @@ let mapleader = " "
 " Use system clipboard
 set clipboard+=unnamed
 
-" 默认dd删除不保存到剪切板
+" Deleting not copying
 nnoremap x "_x
 nnoremap X "_X
 nnoremap d "_d
 "nnoremap D "_D
 nnoremap c "_c
-nnoremap c "_c
+nnoremap C "_C
 
 " Virtual
 vnoremap x "_x
@@ -53,7 +52,6 @@ vnoremap C "_C
 " Plugins
 
 " Key Mappings
-inoremap jj <Esc>
 map L $
 map H ^
 map . <Action>(EditorDuplicate)
@@ -92,10 +90,8 @@ nnoremap <C-h> <c-w>h
 nnoremap <C-l> <c-w>l
 
 " Scrolling
-nmap <C-j> <C-d>
-nmap <C-k> <C-u>
-vmap <C-j> <C-d>
-vmap <C-k> <C-u>
+map <C-j> 9j
+map <C-k> 9k
 
 " Bookmark
 nmap mm <Action>(ToggleBookmark)
@@ -141,8 +137,6 @@ map <leader>fl <Action>(RecentLocations)
 let g:WhichKeyDesc_GotoAction = "<leader>fa GotoAction"
 map <leader>fa <Action>(GotoAction)
 let g:WhichKeyDesc_FindUsages = "<leader>fu FindUsages"
-map <leader>fu <Action>(FindUsages)
-
 " Close ⭐️
 let g:WhichKeyDesc_CloseContent = "<leader>q CloseContent"
 map <leader>q <Action>(CloseContent)
@@ -151,7 +145,7 @@ nmap <leader>h <Action>(PreviousTab)
 let g:WhichKeyDesc_NextTab = "<leader>l NextTab"
 nmap <leader>l <Action>(NextTab)
 
-" Show & Search ⭐️
+
 let g:WhichKeyDesc_Show = "<leader>s Show"
 let g:WhichKeyDesc_ShowFileStructure = "<leader>ss ShowFileStructure"
 nmap <leader>ss <Action>(FileStructurePopup)

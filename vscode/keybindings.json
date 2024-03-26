@@ -32,24 +32,6 @@
   },
   {
     "key": "ctrl+j",
-    "command": "cursorMove",
-    "args": {
-      "to": "down",
-      "by": "line",
-      "value": 15
-    }
-  },
-  {
-    "key": "ctrl+k",
-    "command": "cursorMove",
-    "args": {
-      "to": "up",
-      "by": "line",
-      "value": 15
-    }
-  },
-  {
-    "key": "ctrl+j",
     "command": "selectNextSuggestion",
     "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
   },
@@ -151,7 +133,7 @@
   },
   {
     "key": "shift+enter",
-    "when": "inputFocus && vim.mode == 'Normal'",
+    "when": "inputFocus && neovim.mode == 'normal'",
     "command": "editor.action.insertLineAfter"
   }
 ]

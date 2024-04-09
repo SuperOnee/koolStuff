@@ -49,7 +49,7 @@
   "apc.electron": {
     "titleBarStyle": "hiddenInset",
     "transparent": true,
-    "opacity": 0.88,
+    "opacity": 0.9,
     "visualEffectState": "active",
     "trafficLightPosition": {
       "x": 12,
@@ -60,7 +60,7 @@
   "apc.monospace.font.family": "Jetbrains Mono",
   "apc.statusBar": {
     "position": "editor-bottom",
-    "height": 20,
+    "height": 28,
     "fontSize": 12
   },
   // Custom css
@@ -72,9 +72,11 @@
     ".titlebar-center": "display: none !important",
     ".inline-tabs-placeholder": "display: none !important",
     "div.tab[aria-selected='true'] > .tab-border-top-container": "display: block !important; height: 2.5px; width: 100%; position: absolute; left: 0; background: linear-gradient(to right, #06f, #0af); box-shadow: 0 2px 10px #08f; z-index: 10",
+    // moonlight theme text glow, uncomment to add shadow on more tokens text.
     ".mtk1": "color: #F9B4F6 !important; text-shadow: 0 0 8px #F9B4F6, 0 0 2px black;",
     ".mtk3": "text-shadow: 0 0 8px #555, 0 0 3px black;",
     ".mtk4": "text-shadow: 0 0 8px #df0c, 0 0 3px black;",
+    // ".mtk6": "color: #F9B4F6 !important; font-weight: bolder;",
     ".mtk6": "color: #F9B4F6 !important; text-shadow: 0 0 8px #F9B4F6, 0 0 3px black; font-weight: bolder;",
     ".mtk7": "text-shadow: 0 0 20px #78dbff, 0 0 3px black; font-weight: bolder;",
     ".mtk8": "text-shadow: 0 0 8px #ff757f, 0 0 3px black; font-weight: bolder;",
@@ -130,7 +132,8 @@
   },
   // toggle files
   "files.exclude": {
-    "**/yesde_modules": true,
+    "**/node_modules": true,
+    "**/.git": true,
     "**/.svn": true,
     "**/.hg": true,
     "**/CVS": true,
@@ -139,6 +142,8 @@
     "**/.vscode": true,
     "**/build": true,
     "**/public": true,
+    "**/types": true,
+    "**/README.md": true,
     "**/*-lock.yaml": true,
     "**/bun.lockb": true,
     "**/.prettier*": true,
@@ -171,13 +176,189 @@
   "scss.lint.unknownAtRules": "ignore",
   "css.lint.unknownAtRules": "ignore",
   "console-ninja.featureSet": "Community",
+  "window.zoomLevel": 1,
   "terminal.integrated.env.windows": {},
   "terminal.integrated.env.linux": {},
   "vscode_custom_css.imports": [
     "file:///Users/spongebob/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.1/dist/updateHandler.js"
   ],
-  "whichkey.delay": 0,
-  "whichkey.sortOrder": "alphabetically",
+  // Vim config
+  "vim.leader": "<space>",
+  "vim.useCtrlKeys": true,
+  "vim.sneak": true,
+  "vim.foldfix": true,
+  "vim.hlsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "#F9B4F6",
+  "vim.highlightedyank.textColor": "white",
+  "vim.handleKeys": {
+    "<C-d>": true,
+    "<C-s>": false,
+    "<C-z>": false,
+    "<C-x": false
+  },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // Deleting & cutting don't copy
+    {
+      "before": ["d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["D"],
+      "after": ["\"", "_", "D"]
+    },
+    {
+      "before": ["c"],
+      "after": ["\"", "_", "c"]
+    },
+    {
+      "before": ["C"],
+      "after": ["\"", "_", "C"]
+    },
+    //End Deleting & cutting don't copy
+    {
+      "before": ["L"],
+      "after": ["g", "t"]
+    },
+    {
+      "before": ["H"],
+      "after": ["g", "T"]
+    },
+    {
+      "before": ["j"],
+      "after": ["g", "j"]
+    },
+    {
+      "before": ["k"],
+      "after": ["g", "k"]
+    },
+    // {
+    //   "before": ["<leader>", "u", "r"],
+    //   "commands": [":nohls"]
+    // },
+    {
+      "before": ["."],
+      "commands": ["editor.action.duplicateSelection"]
+    },
+    {
+      "before": ["\\", "r"],
+      "commands": ["editor.action.formatDocument"],
+      "when": "textInputFocus && !editorReadonly"
+    },
+    {
+      "before": ["g", "b"],
+      "commands": ["workbench.action.navigateBack"]
+    },
+    {
+      "before": ["g", "f"],
+      "commands": ["workbench.action.navigateForwardInEditLocations"]
+    },
+    {
+      "before": ["x"],
+      "commands": ["deleteRight"],
+      "when": "textInputFocus"
+    },
+    {
+      "before": ["<C-r>"],
+      "commands": ["redo"]
+    },
+    {
+      "before": ["u"],
+      "commands": ["undo"]
+    },
+    {
+      "before": ["<c-a>"],
+      "after": ["g", "g", "V", "G"]
+    },
+    {
+      "before": ["M"],
+      "after": ["%"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"],
+      "when": "textInputFocus"
+    },
+    {
+      "before": ["v", "s"],
+      "commands": ["workbench.action.splitEditorToRightGroup"],
+      "when": "editorTextFocus && !textInputFocus"
+    },
+    {
+      "before": ["b", "s"],
+      "commands": ["workbench.action.splitEditorDown"],
+      "when": "editorTextFocus && !textInputFocus"
+    },
+    {
+      "before": ["<c-l>"],
+      "commands": ["editor.action.addSelectionToNextFindMatch"],
+      "when": "editorFocus"
+    },
+    {
+      "before": ["<leader>"],
+      "commands": ["whichkey.show"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"],
+      "when": "textInputFocus"
+    },
+    //  Deleting don't copy
+    {
+      "before": ["d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["D"],
+      "after": ["\"", "_", "D"]
+    },
+    {
+      "before": ["c"],
+      "after": ["\"", "_", "c"]
+    },
+    {
+      "before": ["C"],
+      "after": ["\"", "_", "C"]
+    },
+    // End Deleting & cutting don't copy
+    {
+      "before": ["X"],
+      "commands": [":nohls"]
+    },
+    {
+      "before": ["H"],
+      "after": ["^"]
+    },
+    {
+      "before": ["L"],
+      "after": ["$"]
+    },
+    {
+      "before": ["M"],
+      "after": ["%"]
+    },
+    {
+      "before": ["x"],
+      "commands": ["deleteRight"],
+      "when": "textInputFocus"
+    },
+    {
+      "before": ["<C-r>"],
+      "commands": ["redo"]
+    },
+    {
+      "before": ["u"],
+      "commands": ["undo"]
+    },
+    // Which keys
+    {
+      "before": ["<space>"],
+      "commands": ["whichkey.show"]
+    }
+  ],
   "whichkey.bindings": [
     {
       "key": " ",
@@ -217,6 +398,12 @@
       "name": "+Buffers/Editors",
       "type": "bindings",
       "bindings": [
+        {
+          "key": "d",
+          "name": "Close current buffer",
+          "type": "command",
+          "command": "workbench.action.closeActiveEditor"
+        },
         {
           "key": "b",
           "name": "Show all buffers/editors",
@@ -645,50 +832,28 @@
       "key": "q",
       "name": "Close file",
       "type": "command",
-      "command": "vscode-neovim.send",
-      "args": ":q! <Enter>"
+      "command": "vim.remap",
+      "args": {
+        "commands": [{ "command": ":q!" }]
+      }
     },
     {
-      "key": "h",
-      "name": "Previous editor",
-      "type": "comamnd",
-      "command": "workbench.action.previousEditor"
-    },
-    {
-      "key": "l",
-      "name": "Next editor",
+      "key": "e",
+      "name": "Focus On File Explorer",
       "type": "command",
-      "command": "workbench.action.nextEditor"
+      "commands": ["workbench.files.action.focusFilesExplorer"]
     },
     {
-      "key": "K",
-      "name": "Show hover",
-      "type": "command",
-      "command": "editor.action.showHover"
-    },
-    {
-      "key": "n",
-      "name": "Next",
-      "type": "bindings",
+      "key": "u",
       "bindings": [
         {
-          "key": "e",
-          "name": "next error",
+          "key": "r",
+          "name": "No Hls",
           "type": "command",
-          "command": "editor.action.marker.next"
-        }
-      ]
-    },
-    {
-      "key": "p",
-      "name": "Previous",
-      "type": "bindings",
-      "bindings": [
-        {
-          "key": "e",
-          "name": "next error",
-          "type": "command",
-          "command": "editor.action.marker.prev"
+          "command": "vim.remap",
+          "args": {
+            "commands": [{ "command": ":nohls" }]
+          }
         }
       ]
     },
@@ -743,17 +908,11 @@
   ],
   // To improve performance
   "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
+    "vscodevim.vim": 1
   },
   "editor.multiCursorModifier": "ctrlCmd",
   "workbench.colorTheme": "Moonlight",
   "window.commandCenter": false,
   "workbench.layoutControl.enabled": false,
-  "editor.accessibilitySupport": "off",
-  "animations.Install-Method": "Apc Customize UI++",
-  "apc.imports": [
-    "file:///Users/heisenberg/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.1/dist/updateHandler.js"
-  ],
-  "window.zoomLevel": 2,
-  "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/.config/nvim/init.vim"
+  "editor.accessibilitySupport": "off"
 }

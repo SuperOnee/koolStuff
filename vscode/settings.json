@@ -49,7 +49,7 @@
   "apc.electron": {
     "titleBarStyle": "hiddenInset",
     "transparent": true,
-    "opacity": 0.9,
+    "opacity": 0.97,
     "visualEffectState": "active",
     "trafficLightPosition": {
       "x": 12,
@@ -117,7 +117,7 @@
   "prettier.arrowParens": "always",
   "oneDarkPro.vivid": true,
   "git.autofetch": true,
-  "terminal.external.osxExec": "iTerm.app",
+  "terminal.external.osxExec": "Wezterm.app",
   "terminal.integrated.fontFamily": "MesloLGS NF",
   "terminal.integrated.fontSize": 14,
   "[javascript]": {
@@ -240,11 +240,6 @@
     {
       "before": ["."],
       "commands": ["editor.action.duplicateSelection"]
-    },
-    {
-      "before": ["\\", "r"],
-      "commands": ["editor.action.formatDocument"],
-      "when": "textInputFocus && !editorReadonly"
     },
     {
       "before": ["g", "b"],
@@ -660,10 +655,46 @@
       ]
     },
     {
-      "key": "x",
-      "name": "+Text",
+      "key": "c",
+      "name": "Code",
       "type": "bindings",
       "bindings": [
+        {
+          "key": "a",
+          "name": "Code Actions",
+          "type": "command",
+          "command": "editor.action.quickFix"
+        },
+        {
+          "key": "r",
+          "name": "Rename Symbol",
+          "type": "command",
+          "command": "editor.action.rename"
+        },
+        {
+          "key": "f",
+          "name": "Format Code",
+          "type": "command",
+          "comand": "editor.action.formatDocument"
+        },
+        {
+          "key": "s",
+          "name": "Symbol outline",
+          "type": "command",
+          "command": "outline.focus"
+        },
+        {
+          "key": "o",
+          "name": "Organize Imports",
+          "type": "command",
+          "command": "editor.action.organizeImports"
+        },
+        {
+          "key": "R",
+          "name": "Refactor",
+          "type": "command",
+          "command": "editor.action.refactor"
+        },
         {
           "key": "d",
           "name": "Peek Definition",
@@ -675,30 +706,19 @@
           "name": "Wrap with abbreviation",
           "type": "command",
           "command": "editor.emmet.action.wrapWithAbbreviation"
-        },
-        {
-          "key": "i",
-          "name": "Organize Imports",
-          "type": "command",
-          "command": "editor.action.organizeImports"
-        },
-        {
-          "key": "r",
-          "name": "Rename symbol",
-          "type": "command",
-          "command": "editor.action.rename"
-        },
+        }
+      ]
+    },
+    {
+      "key": "x",
+      "name": "+Text",
+      "type": "bindings",
+      "bindings": [
         {
           "key": "f",
           "name": "Replace in file",
           "type": "command",
           "command": "editor.action.startFindReplaceAction"
-        },
-        {
-          "key": "R",
-          "name": "Refactor",
-          "type": "command",
-          "command": "editor.action.refactor"
         },
         {
           "key": ".",

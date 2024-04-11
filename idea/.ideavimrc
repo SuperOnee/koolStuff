@@ -49,49 +49,34 @@ vnoremap d "_d
 vnoremap c "_c
 vnoremap C "_C
 
-" Plugins
-
-" Key Mappings
-map L $
-map H ^
-map . <Action>(EditorDuplicate)
-
 " ================================================================================================
 " = No Leader Keymaps =====================================
 " ================================================================================================
-nmap \r <Action>(ReformatCode)
-nmap vs <Action>(SplitVertically)
-nmap bs <Action>(SplitHorizontally)
+nmap ss <Action>(SplitVertically)
+nmap sv <Action>(SplitHorizontally)
 nmap gd <Action>(GotoDeclaration)
 nmap gi <Action>(GotoImplementation)
 nmap gb <Action>(Back)
 nmap gf <Action>(Forward)
-nmap gh <Action>(ParameterInfo)
 nmap gt <Action>(GotoTest)
+nmap gs <Action>(GotoSuperMethod)
 nmap [[ <Action>(MethodUp)
 nmap ]] <Action>(MethodDown)
-map U <Action>($Redo)
-map u <Action>($Undo)
-map X :nohls<CR>
+nmap U <Action>($Redo)
+map <leader>ur :nohls<CR>
 map K <Action>(ParameterInfo)
-map M %
 " Multiple cursors operations
 " Select next Occurrence
 map <C-p> <A-n>
 " Skip next Occurrence
 map <C-x> <A-x>
 map <C-,> <A-p>
-map <C-h> <Action>(HideActiveWindow)
-map <C-i> <Action>(EditorSelectWord)
-map <C-o> <Action>(EditorUnSelectWord)
 
 " window move
 nnoremap <C-h> <c-w>h
 nnoremap <C-l> <c-w>l
-
-" Scrolling
-map <C-j> 9j
-map <C-k> 9k
+nnoremap <C-j> <c-w>j
+nnoremap <C-k> <c-w>k
 
 " Bookmark
 nmap mm <Action>(ToggleBookmark)
@@ -101,17 +86,9 @@ nmap 'a 'A
 " ================================================================================================
 " = Leader Keymaps =====================================
 " ================================================================================================
-let g:WhichKeyDesc_Next = "<leader>n Next"
-let g:WhichKeyDesc_NextError = "<leader>ne NextError"
-nmap <leader>ne <Action>(GotoNextError)
-let g:WhichKeyDesc_NextSplitter = "<leader>ns NextSplitter"
-nmap <leader>ns <Action>(NextSplitter)
 
-let g:WhichKeyDesc_Previous = "<leader>p Previous"
-let g:WhichKeyDesc_PreviousError = "<leader> PreviousError"
-nmap <leader>pe <Action>(GotoPreviousError)
-let g:WhichKeyDesc_PreviousSplitter = "<leader> PreviousSplitter"
-nmap <leader>ps <Action>(PrevSplitter)
+nmap [d <Action>(GotoNextError)
+nmap ]d <Action>(GotoPreviousError)
 
 map <leader><leader> <Action>(RecentFiles)
 
@@ -137,35 +114,32 @@ map <leader>fl <Action>(RecentLocations)
 let g:WhichKeyDesc_GotoAction = "<leader>fa GotoAction"
 map <leader>fa <Action>(GotoAction)
 let g:WhichKeyDesc_FindUsages = "<leader>fu FindUsages"
+
 " Close ⭐️
 let g:WhichKeyDesc_CloseContent = "<leader>q CloseContent"
 map <leader>q <Action>(CloseContent)
-let g:WhichKeyDesc_PreviousTab = "<leader>h PreviousTab"
-nmap <leader>h <Action>(PreviousTab)
-let g:WhichKeyDesc_NextTab = "<leader>l NextTab"
-nmap <leader>l <Action>(NextTab)
 
+map L <Action>(NextTab)
+map H <Action>(PreviousTab)
+map <C-u> 9kzz
+map <C-d> 9jzz
 
-let g:WhichKeyDesc_Show = "<leader>s Show"
+let g:WhichKeyDesc_Show = "<leader>s Find"
 let g:WhichKeyDesc_ShowFileStructure = "<leader>ss ShowFileStructure"
 nmap <leader>ss <Action>(FileStructurePopup)
 let g:WhichKeyDesc_ShowBookmarks = "<leader>sb ShowBookmarks"
-nmap <leader>sb <Action>(ShowBookmarks)
-let g:WhichKeyDesc_ShowParameterInfo = "<leader>sp ShowParameterInfo"
-nmap <leader>sp <Action>(ParameterInfo)
-let g:WhichKeyDesc_ShowUsages = "<leader>su ShowUsages"
-nmap <leader>su <Action>(ShowUsages)
-let g:WhichKeyDesc_ShowContextAction = "<leader>sh ShowContextAction"
-nmap <leader>sh <Action>(ShowIntentionActions)
+nmap <leader>sm <Action>(ShowBookmarks)
 
-" CloseOrCreate ⭐️
-let g:WhichKeyDesc_CloseOrCreate = "<leader>c CloseOrCreate"
-let g:WhichKeyDesc_CloseAllEditors = "<leader>ca CloseAllEditors"
-map <leader>ca <Action>(CloseAllEditors)
-let g:WhichKeyDesc_CloseAllEditorsButActive = "<leader>co CloseAllEditorsButActive"
-map <leader>co <Action>(CloseAllEditorsButActive)
-let g:WhichKeyDesc_NewElementSamePlace = "<leader>cf NewElementSamePlace"
-map <leader>cf <Action>(NewElementSamePlace)
+" Buffers 🌟
+let g:WhichKeyDesc_Buffers = "<leader>b"
+let g:WhichKeyDesc_CloseCurrentBuffer = "<leader>bd CloseCurrentBuffer"
+nmap <leader>bd <Action>(CloseContent)
+let g:WhichKeyDesc_CloseAllBuffers = "<leader>ba"
+nmap <leader>ba <Action>(CloseAllEditors)
+let g:WhichKeyDesc_CloseAllBuffersButActive = "<leader>bo"
+nmap <leader>bo <Action>(CloseAllEditorsButActive)
+let g:WhichKeyDesc_TogglePin = "<leader>bp"
+nmap <leader>bp <Action>(PinActiveEditorTab)
 
 " Run ⭐️
 let g:WhichKeyDesc_RunOrRe = "<leader>r Run"
@@ -193,31 +167,32 @@ nmap <leader>zg <Action>(CollapseAllRegions)
 let g:WhichKeyDesc_UnzipAll = "<leader>zG UnzipAll"
 nmap <leader>zG <Action>(ExpandAllRegions)
 
-" Insert ⭐
-let g:WhichKeyDesc_Insert = "<leader>i Insert"
-let g:WhichKeyDesc_InsertBefore = "<leader>ik InsertBefore"
-nmap <leader>ik <Action>(EditorStartNewLineBefore)
-let g:WhichKeyDesc_InsertAfter = "<leader>ij InsertAfter"
-nmap <leader>ij <Action>(EditorStartNewLine)
-
+" Code ⭐
+let g:WhichKeyDesc_CodeActions = "<leader>c"
+let g:WhichKeyDesc_OrganizeImports = "<leader>co"
+nmap <leader>co <Action>(OptimizeImports)
+let g:WhichKeyDesc_Reformat = "<leader>cf"
+nmap <leader>cf <Action>(ReformatCode)
+let g:WhichKeyDesc_RenameElement = "<leader>cr"
+nmap <leader>cr <Action>(RenameElement)
+let g:WhichKeyDesc_RenameFile = "<leader>cR"
+nmap <leader>cR <Action>(RenameFile)
+let g:WhichKeyDesc_Refactor = "<leader>ct"
+nmap <leader>ct <Action>(RefactoringMenu)
+let g:WhichKeyDesc_ShowContextAction = "<leader>ca ShowContextAction"
+nmap <leader>ca <Action>(ShowIntentionActions)
 
 " Util ⭐
-let g:WhichKeyDesc_CodeActions = "<leader>x CodeActions"
-let g:WhichKeyDesc_OrganizeImports = "<leader>xi OrganizeImports"
-nmap <leader>xi <Action>(OptimizeImports)
-let g:WhichKeyDesc_RenameElement = "<leader>xr RenameElement"
-nmap <leader>xr <Action>(RenameElement)
+let g:WhichKeyDesc_CodeActions = "<leader>x Text"
 let g:WhichKeyDesc_ReplaceInFile = "<leader>xf ReplaceInFile"
 nmap <leader>xf <Action>(Replace)
-let g:WhichKeyDesc_Refactor = "<leader>xR Refactor"
-nmap <leader>xR <Action>(RefactoringMenu)
 
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins " Highlight copied text
 Plug 'machakann/vim-highlightedyank'
 " Commentary plugin
 Plug 'tpope/vim-commentary'
 
-map <C-n> :NERDTree<CR>
+map <leader>e :NERDTree<CR>
 let g:NERDTreeMapActivateNode='l'
 let g:NERDTreeMapJumpParent='h'
 

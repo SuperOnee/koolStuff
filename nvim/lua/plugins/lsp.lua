@@ -7,6 +7,7 @@ local function organize_imports()
   }
   vim.lsp.buf.execute_command(params)
 end
+
 return {
   {
     'williamboman/mason.nvim',
@@ -23,6 +24,15 @@ return {
       })
     end,
   },
+  -- emmet plugin
+  {
+    'olrtg/nvim-emmet',
+    config = function()
+      vim.keymap.set({ 'n', 'v' }, '<leader>cw', function()
+        require('nvim-emmet').wrap_with_abbreviation()
+      end)
+    end,
+  },
   -- lsp servers
   {
     'neovim/nvim-lspconfig',
@@ -36,13 +46,24 @@ return {
         end)
       end,
     },
-    -- keys = {
-    --   { '<Leader>ce', '<Cmd>EslintFixAll<Return>', desc = 'Eslint FixAll' },
-    --   { 'gd', '<Cmd>Telescope lsp_definitions<Return>', desc = 'Goto Definition' },
-    --   { 'gi', '<Cmd>Telescope lsp_implementations<Return>', desc = 'Goto Definition' },
-    -- },
     opts = {
       servers = {
+        emmet_language_server = {
+          filetypes = {
+            'css',
+            'eruby',
+            'html',
+            'javascript',
+            'javascriptreact',
+            'less',
+            'sass',
+            'scss',
+            'svelte',
+            'pug',
+            'typescriptreact',
+            'vue',
+          },
+        },
         cssls = {
           settings = {
             css = {

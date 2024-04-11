@@ -1,2 +1,3 @@
 # koolStuff
-koolStuff Collections
+
+koolStuff: Nvim, idea, vscode, wezterm, zsh, rime configs

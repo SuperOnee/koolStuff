@@ -3,6 +3,8 @@
         "param-type-mismatch"
     ],
     "diagnostics.globals": [
-        "vim"
+        "vim",
+        "remove_current_buffer",
+        "LazyVim"
     ]
 }

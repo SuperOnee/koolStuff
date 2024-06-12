@@ -8,7 +8,7 @@ return {
       transparent_background = true,
       integrations = {
         dashboard = true,
-        flash = false,
+        flash = true,
         leap = false,
         neotree = true,
         mason = true,

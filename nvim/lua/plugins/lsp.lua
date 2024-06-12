@@ -1,4 +1,5 @@
-local vue_language_server_path = '/opt/homebrew/lib/node_modules/@vue/language-server'
+local vue_language_server_path = vim.fn.stdpath('data')
+  .. '/mason/packages/vue-language-server/node_modules/@vue/language-server'
 
 local function organize_imports()
   local params = {
@@ -24,6 +25,29 @@ return {
       })
     end,
   },
+  -- {
+  --   'linux-cultist/venv-selector.nvim',
+  --   cmd = 'VenvSelect',
+  --   opts = function(_, opts)
+  --     local venv = require('venv-selector')
+  --     if LazyVim.has('nvim-dap-python') then
+  --       opts.dap_enabled = true
+  --       opts.search = false
+  --       opts.auto_refresh = true
+  --       opts.search_workspace = true
+  --     end
+  --     venv.retrieve_from_cache()
+  --     return vim.tbl_deep_extend('force', opts, {
+  --       name = {
+  --         'venv',
+  --         '.venv',
+  --         'env',
+  --         '.env',
+  --       },
+  --     })
+  --   end,
+  --   keys = { { '<leader>cv', '<cmd>:VenvSelect<cr>', desc = 'Select VirtualEnv' } },
+  -- },
   -- emmet plugin
   {
     'olrtg/nvim-emmet',
@@ -112,16 +136,16 @@ return {
               },
             },
           },
-          filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+          -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
         },
-        volar = {},
-        -- volar = {
-        --   init_options = {
-        --     vue = {
-        --       hybridMode = false,
-        --     },
-        --   },
-        -- },
+        -- volar = {},
+        volar = {
+          init_options = {
+            vue = {
+              hybridMode = false,
+            },
+          },
+        },
       },
     },
   },

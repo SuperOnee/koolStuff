@@ -1,13 +1,5 @@
-local vue_language_server_path = vim.fn.stdpath('data')
-  .. '/mason/packages/vue-language-server/node_modules/@vue/language-server'
-
-local function organize_imports()
-  local params = {
-    command = '_typescript.organizeImports',
-    arguments = { vim.api.nvim_buf_get_name(0) },
-  }
-  vim.lsp.buf.execute_command(params)
-end
+-- local vue_language_server_path = vim.fn.stdpath('data')
+--   .. '/mason/packages/vue-language-server/node_modules/@vue/language-server'
 
 return {
   {
@@ -16,12 +8,9 @@ return {
       vim.list_extend(opts.ensure_installed, {
         'stylua',
         'luacheck',
-        'kotlin-language-server',
-        'gradle-language-server',
         'html-lsp',
         'css-lsp',
         'emmet-language-server',
-        'vue-language-server',
       })
     end,
   },
@@ -109,43 +98,49 @@ return {
               },
             },
           },
-        },
-        tailwindcss = {
-          root_dir = function(...)
-            return require('lspconfig.util').root_pattern('tailwind.config.*')(...)
-          end,
-        },
-        tsserver = {
-          commands = {
-            OrganizeImports = {
-              organize_imports,
-              description = 'Organize Imports',
-            },
-          },
-          keys = {
-            { '<leader>co', '<cmd>OrganizeImports<CR>', desc = 'Organize Imports' },
-            { '<leader>cR', '<cmd>TypescriptRenameFile<CR>', desc = 'Rename File' },
-            { '<Leader>ce', '<Cmd>EslintFixAll<Return>', desc = 'Eslint FixAll' },
-          },
-          init_options = {
-            plugins = {
-              {
-                name = '@vue/typescript-plugin',
-                location = vue_language_server_path,
-                languages = { 'vue' },
-              },
-            },
-          },
-          -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-        },
-        -- volar = {},
-        volar = {
-          init_options = {
-            vue = {
-              hybridMode = false,
-            },
+          filetypes = {
+            'css',
+            'eruby',
+            'html',
+            'javascript',
+            'javascriptreact',
+            'less',
+            'sass',
+            'scss',
+            'svelte',
+            'pug',
+            'typescriptreact',
+            'vue',
           },
         },
+        -- tailwindcss = {
+        --   root_dir = function(...)
+        --     return require('lspconfig.util').root_pattern('tailwind.config.*')(...)
+        --   end,
+        -- },
+        -- tsserver = {
+        --   commands = {
+        --     OrganizeImports = {
+        --       organize_imports,
+        --       description = 'Organize Imports',
+        --     },
+        --   },
+        --   keys = {
+        --     { '<leader>co', '<cmd>OrganizeImports<CR>', desc = 'Organize Imports' },
+        --     { '<leader>cR', '<cmd>TypescriptRenameFile<CR>', desc = 'Rename File' },
+        --     { '<Leader>ce', '<Cmd>EslintFixAll<Return>', desc = 'Eslint FixAll' },
+        --   },
+        --   -- init_options = {
+        --   --   plugins = {
+        --   --     {
+        --   --       name = '@vue/typescript-plugin',
+        --   --       location = vue_language_server_path,
+        --   --       languages = { 'vue' },
+        --   --     },
+        --   --   },
+        --   -- },
+        --   -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+        -- },
       },
     },
   },

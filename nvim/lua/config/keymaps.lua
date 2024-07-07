@@ -9,9 +9,8 @@ local opts = { noremap = true, silent = true }
 function REMOVE_CURRENT_BUFFER()
   LazyVim.ui.bufremove()
   local fallback_name = vim.api.nvim_buf_get_name(0)
-  local fallback_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-  local fallback_on_empty = fallback_name == '' and fallback_ft == ''
-
+  -- local fallback_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+  local fallback_on_empty = fallback_name == '' and vim.bo.filetype == ''
   if fallback_on_empty then
     vim.cmd('Dashboard')
   end
@@ -28,18 +27,9 @@ keymap.set('n', 'D', '"_D')
 keymap.set('v', 'D', '"_D')
 keymap.set('v', 'd', '"_d')
 
--- Increment/decrement
-keymap.set('n', '+', '<C-a>')
-keymap.set('n', '-', '<C-x>')
-
 -- Split windows
 keymap.set('n', 'ss', ':split<CR>', opts)
 keymap.set('n', 'sv', ':vsplit<CR>', opts)
-
--- Scroll
-keymap.set('n', '<C-d>', '9jzz', { remap = true })
-keymap.set('n', '<C-u>', '9kzz', { remap = true })
-keymap.set('n', 'G', 'Gzz', { remap = true })
 
 -- Window Navigation
 keymap.set('n', '<C-h>', '<cmd>TmuxNavigateLeft<CR>', { remap = true, silent = true })
@@ -47,10 +37,19 @@ keymap.set('n', '<C-j>', '<cmd>TmuxNavigateDown<CR>', { remap = true, silent = t
 keymap.set('n', '<C-k>', '<cmd>TmuxNavigateUp<CR>', { remap = true, silent = true })
 keymap.set('n', '<C-l>', '<cmd>TmuxNavigateRight<CR>', { remap = true, silent = true })
 
+-- Scroll
+keymap.set('n', '<C-d>', '9jzz', { remap = true })
+keymap.set('n', '<C-u>', '9kzz', { remap = true })
+keymap.set('n', 'G', 'Gzz', { remap = true })
+
+-- Increment/decrement
+keymap.set('n', '+', '<C-a>')
+keymap.set('n', '-', '<C-x>')
+
 -- Buffers
 keymap.set('n', '<leader>q', REMOVE_CURRENT_BUFFER, { desc = 'Delete current buffer' })
 
-keymap.set('n', '<leader>qa', function()
+keymap.set('n', '<leader>ba', function()
   vim.cmd('BufferLineCloseOthers')
   REMOVE_CURRENT_BUFFER()
 end, { desc = 'Delete all buffers' })

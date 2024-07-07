@@ -1,4 +1,3 @@
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -71,7 +70,7 @@ ZSH_THEME="amuse"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew bun iterm2 gradle node npm yarn golang docker docker-machine docker-compose vscode zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)
+plugins=(git brew bun iterm2 gradle node npm yarn golang docker docker-machine docker-compose vscode zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,10 +101,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls=colorls — light — sort-dirs — report’ 
 alias lc=colorls — tree — light
-alias vim=nvim
+alias vim='nvim $(fzf -m --preview="bat --color=always {}")'
 alias vi=nvim
-alias python=/opt/homebrew/bin/python3.12
 alias py=python
+alias work="~/PersonalFiles/work/"
+alias personal="~/PersonalFiles"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -131,3 +131,6 @@ cow=$(node -e "var c='$(cowsay -l)'.split('  ');console.log(c[Math.floor(Math.ra
 #  cow=$(shuf -n 1 -e $(cowsay -l))
 fortune | cowsay -f "$cow" | lolcat --spread 1.0
 
+
+# Created by `pipx` on 2024-06-24 03:36:06
+export PATH="$PATH:/Users/heisenberg/.local/bin"

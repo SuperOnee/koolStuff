@@ -9,7 +9,7 @@
 # 鼠须管作者写的图形化的皮肤设计器： https://github.com/LEOYoon-Tsaw/Squirrel-Designer
 
 # 要比共享目录的同名文件的 config_version 大才可以生效
-config_version: '2023-02-27'
+config_version: "2023-02-27"
 
 # options: last | default | _custom_
 # last: the last used latin keyboard layout
@@ -33,6 +33,10 @@ app_options:
     vim_mode: true
   com.googlecode.iterm2:
     ascii_mode: true
+    vim_mode: true
+  com.github.wez.wezterm:
+    ascii_mode: true
+    vim_mode: true
   com.microsoft.VSCode: # Visual Studio Code
     ascii_mode: true
     vim_mode: true
@@ -56,38 +60,38 @@ style:
 
   # 预设选项。如果皮肤没写，则使用这些属性；如果皮肤写了，使用皮肤的。
   text_orientation: horizontal # horizontal | vertical
+  horizontal: true # 平行
   inline_preedit: true
   corner_radius: 10
   hilited_corner_radius: 0
   border_height: 0
   border_width: 0
   line_spacing: 5
-  spacing: 10
   #candidate_format: '%c. %@'
   #base_offset: 6
-  font_face: 'Lucida Grande'
-  font_point: 15
+  font_face: "Lucida Grande"
+  font_point: 18
   #label_font_face: 'Lucida Grande'
   label_font_point: 3
   #comment_font_face: 'Lucida Grande'
-  comment_font_point: 16
+  comment_font_point: 19
 
 # 皮肤列表
 preset_color_schemes:
   # 对 purity_of_form 略微调整颜色，让色彩更柔和点，补全其他选项和注释
   purity_of_form_custom:
-    name: '純粹的形式／Purity of Form Custom'
+    name: "純粹的形式／Purity of Form Custom"
     author: 雨過之後、佛振
     # 如果将字体设置为 PingFangSC-Regular
     # 会让 🈶🈚️🉑🈲🉐 这几个 Emoji 失去彩色效果，留空反而可以显示。。。
-    font_face: '' # 字体及大小
+    font_face: "" # 字体及大小
     font_point: 18
-    label_font_face: 'Helvetica' # 序号字体及大小
+    label_font_face: "Helvetica" # 序号字体及大小
     label_font_point: 12
-    comment_font_face: 'Helvetica' # 注字体及大小
+    comment_font_face: "Helvetica" # 注字体及大小
     comment_font_point: 16
     # candidate_list_layout: stacked        # 候选项排列方向 stacked(默认) | linear
-    # text_orientation: horizontal          # 文字排列方向 horizontal(默认) | vertical
+    text_orientation: horizontal # 文字排列方向 horizontal(默认) | vertical
     inline_preedit: true # 拼音位于： 候选框 false | 行内 true
     translucency: false # 磨砂： false | true
     mutual_exclusive: false # 色不叠加： false | true
@@ -276,7 +280,7 @@ preset_color_schemes:
     name: 简约白／Clean White
     author: Chongyu Zhu <lembacon@gmail.com>, based on 搜狗「简约白」
     horizontal: true
-    candidate_format: '%c %@'
+    candidate_format: "%c %@"
     corner_radius: 6
     border_height: 6
     border_width: 6
@@ -302,10 +306,10 @@ preset_color_schemes:
     border_height: 0
     border_width: 0
     back_color: 0xFFFFFF #候选条背景色
-    font_face: 'PingFangSC-Regular,HanaMinB' #候选词字体
+    font_face: "PingFangSC-Regular,HanaMinB" #候选词字体
     font_point: 16 #候选字词大小
     text_color: 0x424242 #高亮选中词颜色
-    label_font_face: 'STHeitiSC-Light' #候选词编号字体
+    label_font_face: "STHeitiSC-Light" #候选词编号字体
     label_font_point: 12 #候选编号大小
     hilited_candidate_text_color: 0xEE6E00 #候选文字颜色
     hilited_candidate_back_color: 0xFFF0E4 #候选文字背景色
@@ -322,9 +326,9 @@ preset_color_schemes:
     border_width: 8 # 窗口边界宽度，大于圆角半径才生效
     back_color: 0xeeffffff #候选条背景色
     border_color: 0xE0B693 # 边框色
-    font_face: 'HYQiHei-55S Book,HanaMinA Regular' #候选词字体
+    font_face: "HYQiHei-55S Book,HanaMinA Regular" #候选词字体
     font_point: 14 #候选字词大小
-    label_font_face: 'SimHei' #候选词编号字体
+    label_font_face: "SimHei" #候选词编号字体
     label_font_point: 10 #候选编号大小
     label_color: 0xcbcbcb # 预选栏编号颜色
     candidate_text_color: 0x555555 # 预选项文字颜色
@@ -346,7 +350,7 @@ preset_color_schemes:
     hilited_corner_radius: 3 # 高亮圆角
     border_height: 6 # 窗口边界高度，大于圆角半径才生效
     border_width: 6 # 窗口边界宽度，大于圆角半径才生效
-    font_face: 'PingFangSC' # 候选词字体
+    font_face: "PingFangSC" # 候选词字体
     font_point: 16 # 候选字词大小
     label_font_point: 14 # 候选编号大小
 
@@ -402,51 +406,60 @@ preset_color_schemes:
     hilited_text_color: 0x2C8BAE #Lab 60, 10, 65
 
   pink_dark:
-    name: 'Lasers'
-    horizontal: true # 水平排列
+    name: "dark_pink"
+    candidate_list_layout: linear #水平排列
     inline_preedit: true #示
     candidate_format: "%c\u2005%@\u2005" # 编号 %c 和候选词 %@ 前后的空间
     corner_radius: 5 # 候选条圆角
     border_height: 0
     border_width: 0
-    back_color: 0x2e2925 # 候选条背景色
-    font_face: 'PingFangSC' # 候选词字体
-    font_point: 16 # 候选字词大小
-    text_color: 0x5024D4 # 候选词颜色
-    label_font_face: 'OperatorMonoNerdFontComplete-Italic' # 候选词编号字体
-    label_font_point: 13 # 候选编号大小
-    hilited_candidate_text_color: #FF0090 # 候选文字颜色
-    hilited_candidate_back_color: #FFEDED # 候选文字背景色
+    back_color: 0x000000 # 候选条背景色
+    font_face: "PingFangSC" # 候选词字体
+    font_point: 18 # 候选字词大小
+    text_color: 0x9000FF # 候选词颜色
+    label_font_face: "OperatorMonoNerdFontComplete-Italic" # 候选词编号字体
+    label_font_point: 16 # 候选编号大小
+    hilited_text_color: 0x9000FF
+    hilited_back_color: 0x000066
+    hilited_candidate_text_color: 0x9000FF
+    hilited_candidate_back_color: 0xC2C2FF
+    hilited_candidate_label_color: 0xFFFFFF
+    candidate_text_color: 0x9000FF
+    label_color: 0xFFFFFF
     comment_text_color: 0xB5A700 # 拼音等提示文字颜色
 
   pink_light:
-    name: 'Lasers'
-    horizontal: true # 水平排列
+    name: "Lasers"
+    candidate_list_layout: linear #水平排列
     inline_preedit: true #示
     candidate_format: "%c\u2005%@\u2005" # 编号 %c 和候选词 %@ 前后的空间
-    corner_radius: 5 # 候选条圆角
+    curner_radius: 5 # 候选条圆角
     border_height: 0
     border_width: 0
     back_color: 0xffffff # 候选条背景色
-    font_face: 'PingFangSC' # 候选词字体
-    font_point: 16 # 候选字词大小
-    text_color: 0x5024D4 # 候选词颜色
-    label_font_face: 'OperatorMonoNerdFontComplete-Italic' # 候选词编号字体
-    label_font_point: 13 # 候选编号大小
-    hilited_candidate_text_color: #FF0090 # 候选文字颜色
-    hilited_candidate_back_color: #FFEDED # 候选文字背景色
+    font_face: "PingFangSC" # 候选词字体
+    font_point: 18 # 候选字词大小
+    text_color: 0x4F25D4 # 候选词颜色
+    label_font_face: "OperatorMonoNerdFontComplete-Italic" # 候选词编号字体
+    label_font_point: 16 # 候选编号大小
+    hilited_text_color: 0x4F25D4
+    hilited_back_color: 0xD6E7FF
+    hilited_candidate_text_color: 0x4F25D4 # 候选文字颜色
+    hilited_candidate_back_color: 0xD6E7FF # 候选文字背景色
+    hilited_candidate_label_color: 0x4F25D4
+    candidate_text_color: 0x4F25D4
+    label_color: 0x7F8194
     comment_text_color: 0xB5A700 # 拼音等色
 
   mac_orange:
     name: Mac橙
-    horizontal: true # true横排，false竖排
-    candidate_format: '%c %@ ' # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+    candidate_format: "%c %@ " # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
     corner_radius: 5 # 窗口圆角
     hilited_corner_radius: 5 # 高亮圆角
     line_spacing: 10 # 行间距(适用于竖排)
     border_height: 4 # 窗口上下高度，大于圆角半径才生效
     border_width: 4 # 窗口左右宽度，大于圆角半径才生效
-    font_face: 'PingFangSC' # 候选词字体
+    font_face: "PingFangSC" # 候选词字体
     font_point: 16 # 候选字大小
     label_font_point: 13 # 候选编号大小
     text_color: 0x424242 # 拼音行文字颜色
@@ -464,11 +477,11 @@ preset_color_schemes:
   mac_orange_dark:
     name: Mac橙深色
     horizontal: true # true横排，false竖排
-    candidate_format: '%c %@ ' # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+    candidate_format: "%c %@ " # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
     corner_radius: 5 # 窗口圆角
     hilited_corner_radius: 5 # 高亮圆角
     line_spacing: 10 # 行间距(适用于竖排)
-    font_face: 'PingFangSC' # 候选词字体
+    font_face: "PingFangSC" # 候选词字体
     font_point: 16 # 候选字大小
     label_font_point: 13 # 候选编号大小
     text_color: 0xFFFFFF # 拼音行文字颜色

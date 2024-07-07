@@ -38,7 +38,7 @@ require('lazy').setup({
     { import = 'lazyvim.plugins.extras.coding.luasnip' },
     { import = 'lazyvim.plugins.extras.coding.yanky' },
     -- UI
-    -- { import = 'lazyvim.plugins.extras.ui.mini-indentscope' },
+    { import = 'lazyvim.plugins.extras.ui.mini-indentscope' },
 
     -- import/override with your plugins
     { import = 'plugins' },

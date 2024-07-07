@@ -99,16 +99,14 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls=colorls — light — sort-dirs — report’ 
-alias lc=colorls — tree — light
-alias vim='nvim $(fzf -m --preview="bat --color=always {}")'
-alias vi=nvim
+alias vim=nvim
+alias vi='nvim $(fzf -m --preview="bat --color=always {}")'
 alias py=python
 alias work="~/PersonalFiles/work/"
 alias personal="~/PersonalFiles"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 
 # bun completions
@@ -134,3 +132,28 @@ fortune | cowsay -f "$cow" | lolcat --spread 1.0
 
 # Created by `pipx` on 2024-06-24 03:36:06
 export PATH="$PATH:/Users/heisenberg/.local/bin"
+
+# Eza
+alias ls="eza --color=always --long --git --icons=always --no-user --no-permissions"
+alias tree="eza --tree --level 2 --color=always --long --git --icons=always --no-user --no-permissions"
+
+# fzf
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+    export|unset) fzf --preview "eval 'echo \${}'"         "$@" ;;
+    ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
+  esac
+}
+
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"

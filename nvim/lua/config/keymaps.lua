@@ -40,6 +40,7 @@ keymap.set('n', '<C-l>', '<cmd>TmuxNavigateRight<CR>', { remap = true, silent = 
 -- Scroll
 keymap.set('n', '<C-d>', '9jzz', { remap = true })
 keymap.set('n', '<C-u>', '9kzz', { remap = true })
+
 keymap.set('n', 'G', 'Gzz', { remap = true })
 
 -- Increment/decrement

@@ -102,8 +102,9 @@ source $ZSH/oh-my-zsh.sh
 alias vim=nvim
 alias vi='nvim $(fzf -m --preview="bat --color=always {}")'
 alias py=python
-alias work="~/PersonalFiles/work/"
-alias personal="~/PersonalFiles"
+alias ww="cd ~/Work"
+alias oo="cd ~/Code"
+alias note="cd ~/Notes/"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -123,11 +124,12 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 eval "$(starship init zsh)"
+
 # Randomly select a cow name
-cow=$(node -e "var c='$(cowsay -l)'.split('  ');console.log(c[Math.floor(Math.random()*c.length)])")
+# cow=$(node -e "var c='$(cowsay -l)'.split('  ');console.log(c[Math.floor(Math.random()*c.length)])")
 # Or, if you have shuf (or gshuf) installed
 #  cow=$(shuf -n 1 -e $(cowsay -l))
-fortune | cowsay -f "$cow" | lolcat --spread 1.0
+# fortune | cowsay -f "$cow" | lolcat --spread 1.0
 
 
 # Created by `pipx` on 2024-06-24 03:36:06

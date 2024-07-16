@@ -66,7 +66,7 @@ return {
       },
       keys = {
         {
-          '<leader>fP',
+          '<Leader>fP',
           function()
             require('telescope.builtin').find_files({
               cwd = require('lazy.core.config').options.root,
@@ -94,7 +94,7 @@ return {
         --   desc = 'Lists open buffers',
         -- },
         {
-          '<Leader>f;',
+          '<Leader>;',
           function()
             local builtin = require('telescope.builtin')
             builtin.resume()
@@ -118,7 +118,7 @@ return {
         --   desc = 'Lists Function names, variables, from Treesitter',
         -- },
         {
-          '<leader>fs',
+          '<Leader>fs',
           function()
             local telescope = require('telescope')
 

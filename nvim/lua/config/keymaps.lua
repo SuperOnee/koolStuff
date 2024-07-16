@@ -48,7 +48,7 @@ keymap.set('n', '+', '<C-a>')
 keymap.set('n', '-', '<C-x>')
 
 -- Buffers
-keymap.set('n', '<leader>q', REMOVE_CURRENT_BUFFER, { desc = 'Delete current buffer' })
+keymap.set('n', '<leader>bd', REMOVE_CURRENT_BUFFER, { remap = true, silent = true })
 
 keymap.set('n', '<leader>ba', function()
   vim.cmd('BufferLineCloseOthers')

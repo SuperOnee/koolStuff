@@ -37,15 +37,15 @@ set clipboard+=unnamed
 nnoremap x "_x
 nnoremap X "_X
 nnoremap d "_d
-"nnoremap D "_D
+nnoremap D "_D
 nnoremap c "_c
 nnoremap C "_C
 
 " Virtual
-vnoremap x "_x
-vnoremap X "_X
+" vnoremap x "_x
+" vnoremap X "_X
 vnoremap d "_d
-"vnoremap D "_D
+vnoremap D "_D
 vnoremap c "_c
 vnoremap C "_C
 
@@ -62,7 +62,6 @@ nmap gt <Action>(GotoTest)
 nmap gs <Action>(GotoSuperMethod)
 nmap [[ <Action>(MethodUp)
 nmap ]] <Action>(MethodDown)
-nmap U <Action>($Redo)
 map <leader>ur :nohls<CR>
 map K <Action>(ParameterInfo)
 " Multiple cursors operations
@@ -90,7 +89,7 @@ nmap 'a 'A
 nmap [d <Action>(GotoNextError)
 nmap ]d <Action>(GotoPreviousError)
 
-map <leader><leader> <Action>(RecentFiles)
+map <leader><leader> <Action>(SearchEverywhere)
 
 map <leader>/ <Action>(FindInPath)
 
@@ -107,17 +106,11 @@ map <leader>tb <Action>(ToggleLineBreakpoint)
 let g:WhichKeyDesc_Find = "<leader>f Find"
 let g:WhichKeyDesc_FindFile = "<leader>ff GotoFile"
 map <leader>ff <Action>(GotoFile)
-let g:WhichKeyDesc_FindInPath = "<leader>fp FindInPath"
-map <leader>fp <Action>(FindInPath)
 let g:WhichKeyDesc_FindRecentLocations = "<leader>fl RecentLocations"
 map <leader>fl <Action>(RecentLocations)
 let g:WhichKeyDesc_GotoAction = "<leader>fa GotoAction"
 map <leader>fa <Action>(GotoAction)
 let g:WhichKeyDesc_FindUsages = "<leader>fu FindUsages"
-
-" Close ⭐️
-let g:WhichKeyDesc_CloseContent = "<leader>q CloseContent"
-map <leader>q <Action>(CloseContent)
 
 map L <Action>(NextTab)
 map H <Action>(PreviousTab)
